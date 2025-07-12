@@ -1,17 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Mi página</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index_estilo.css">
+        <title>Portafolio de Informática</title>
     </head>
     <body>
-        <h1>Bienvenidos</h1>
-        <p>Soy Sofía, voy al Colegio Calasanz y Vivo en Buenos Aires, Argentina</p>
-        <ul>
-            <li><a href="enlace.html">Ejercicio 1</a></li>
-            <li><a href="./tablas.html"tarjet="_blank">Ejercicio 2</a></li>
-            <li><a href=".tablas2.html">Ejercicio 3</a></li>
-            <li><a href="./semantica.html">Ejercicio 4</a></li>
-        </ul>
-        <img src="LAUFEY.JPEG">
+        <!-- Encabezado principal con título y subtítulo -->
+         <header>
+            <h1>Portafolio de Informática</h1>
+            <h3>Primeros Pasos en Diseño Web</h3>
+        </header>
+        <!-- Menú de navegación principal -->
+         <nav>
+            <a href="https://github.com/sofymartin/informatica">Repositorio GitHub</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1Xnv8IuyvkP7KpNugxc2svOqi832tdbe4">Carpeta en Drive</a>
+            <a href="">FreeCodeCamp</a>
+            <a href="">MDN Web Docs</a>
+        </nav>
+        <main>
+            <!-- Contenido principal de la página -->
+             <section>
+                <article class="tarjeta">
+                    <h2>Sobre Mi:</h2>
+                    <p>Me llamo <strong>Sofía Mártin</strong> y voy a <strong>3°C</strong> en <strong>Colegio Calasanz</strong> en <strong>Buenos Aires, Argentina</strong>. Mis hobbies favoritos son el voley, dibujar, jugar videojuegos y mirar series y peliculas.</p>
+                </article>
+                                <article class="tarjeta">
+                    <h2>Sobre la Materia:</h2>
+                    <p>Esta pagina se trata de una evaluación para la materia de informática, donde yo creo mi pagina personal para aplicar todos mis conocimientos. Estamos aprendiendo a construir páginas web usando HTML y CSS en Visual Studio Code.</p>
+                </article>
+                <article class="tarjeta">
+                    <h2>Lo que Aprendi hasta Ahora:</h2>
+                    <ul>
+                        <li>Crear estructuras HTML básicas</li>
+                        <li>Insertar imágines, enlaces y tablas</li>
+                        <li>Usar etiquetas semánticas correctamente</li>
+                        <li>Aplicar estilos usando CSS externo</li>
+                    </ul>
+                </article>
+                <article class="tarjeta">
+                    <h2>Herramientas que estoy Usando:</h2>
+                    <img src="vsc.png" width="15%">
+                    <img src="html.png" width="12%">
+                    <img src="css.png" width="13%">
+                    <img src="chrome.png" width="11%">
+                </article>
+            </section>
+            <!-- Información complementaria (aside) --> 
+             <aside>
+                <h3>Ejercicios Realizados:</h3>
+                <ul>
+                    <li><a href="enlace.html">Receta</a></li>
+                    <li><a href="tablas.html">Tabla 1</li>
+                    <li><a href="tablas2.html">Tabla 2</a></li>
+                    <li><a href="semantica.html">Mafalda</li>
+                </ul>
+            </aside> 
+        </main>
+        <!-- Pie de página con derechos y enlaces legales --> 
+         <footer>
+            <p>&copy; 2025 Sofía Martin - Informática</p> 
+            <p><a href="contacto.html"><strong>Contacto</strong></a></p> 
+        </footer>
     </body>
-    </html>
+</html>

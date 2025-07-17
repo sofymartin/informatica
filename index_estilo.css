@@ -68,3 +68,12 @@ footer a {
     color: rgb(239, 191, 248);
     text-decoration: none;
 } 
+table {
+    width: 100%;
+    color: white;
+    background-color: rgb(220, 141, 241);
+    border-collapse: collapse;
+}
+th{
+    background-color: rgb(139, 41, 158);
+}

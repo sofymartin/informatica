@@ -1,0 +1,12 @@
+/*Selector de etiqueta*/
+h1 {
+    color:red;
+}
+h2 {
+    color:blue;
+}
+/*Selector de clase*/
+.oscuro {
+    background-color: black;
+    color: white;
+}

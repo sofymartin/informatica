@@ -10,3 +10,12 @@ h2 {
     background-color: black;
     color: white;
 }
+/*Selector ID*/
+#biografia {
+    background-color:rgb(218, 172, 172);
+    color: black;
+}
+#frases {
+    background-color:rgb(218, 172, 172);
+    color: black;
+}

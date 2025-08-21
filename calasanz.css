@@ -1,13 +1,20 @@
+header {
+    background-image: url("fondo\ rosa.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
 /*Selector de etiqueta*/
 h1 {
-    color:red;
+    color:rgb(80, 6, 6);
 }
 h2 {
-    color:blue;
+    color:rgb(80, 6, 6);
 }
 /*Selector de clase*/
 .oscuro {
-    background-color: black;
+    background-color: rgb(196, 108, 108);
     color: white;
 }
 /*Selector ID*/
@@ -19,3 +26,64 @@ h2 {
     background-color:rgb(218, 172, 172);
     color: black;
 }
+#galeriadepersonajes {
+    background-color:rgb(218, 172, 172);
+    color: black;
+}
+footer {
+    background-color: rgb(196, 108, 108);
+    color: #fff8ec;
+    text-align: center;
+    padding: 1rem;
+  }
+  footer a {
+    color: #fff8ec;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem; 
+    font-size: 1.8rem; 
+    display: inline-block; 
+  }
+  
+  footer a:hover {
+    color: rgb(80, 6, 6);
+  }
+  #galeria .contenedor-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .tarjeta-obra {
+    background-color: #fff8ec;
+    border: 1px solid #d8c3a5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .tarjeta-obra:hover {
+    transform: scale(1.02);
+  }
+  
+  .tarjeta-obra img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .info-obra {
+    padding: 1rem;
+  }
+  
+  .info-obra h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #8b5e3c;
+  }
+  
+  .info-obra p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+  }
+  

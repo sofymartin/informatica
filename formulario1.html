@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 1</title>
+    <style>
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        }
+        h1 {
+        text-align: center;
+        color: #fff; /* Cambiado a blanco para mejor contraste sobre el fondo del form */
+        margin-bottom: 20px;
+        }
+        form {
+        background: #333; /* Fondo oscuro del formulario */
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+        width: 350px;
+        text-align: left;
+        }
+        label {
+        display: block;
+        font-weight: bold;
+        margin: 10px 0 5px;
+        color: #fff; /* Corregido a blanco para verse sobre el fondo oscuro del form */
+        }
+        input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        }
+        input[type="text"]:focus, select:focus {
+        border-color: #4facfe;
+        box-shadow: 0px 0px 6px rgba(79, 172, 254, 0.6);
+        }
+        .radio-group {
+        margin: 8px 0 15px;
+        color: #fff; /* Añadido color para el texto que no es label (Hombre/Mujer) */
+        }
+        .radio-group input {
+        margin-right: 5px;
+        }
+        /* Estilos específicos para los labels de radio para que estén en línea */
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+        button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+        border: none;
+        border-radius: 8px;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s ease;
+        margin-top: 15px;
+        }
+        button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #38f9d7, #43e97b);
+        } 
+        /* Estilos para el mensaje final */
+        div {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+            width: 300px;
+            text-align: center;
+        }
+        div h1 {
+            color: #333;
+        }
+        div p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form id="formulario">
+        <h1>Formulario de Ingreso</h1>
+        
+        <label for="nombre">Escribe tu nombre:</label>
+        <input type="text" id="nombre">
+        
+        <label>Género:</label>
+        <div class="radio-group">
+            <input type="radio" name="genero" value="hombre" id="genero-hombre"> 
+            <label for="genero-hombre">Hombre</label>
+            
+            <input type="radio" name="genero" value="mujer" id="genero-mujer"> 
+            <label for="genero-mujer">Mujer</label> 
+        </div>
+        
+        <label for="pais">País de nacimiento:</label>
+        <select id="pais">
+            <option value="arg">Argentina</option>
+            <option value="bra">Brasil</option>
+            <option value="usa">EE.UU.</option> 
+        </select>
+        <button type="button" onclick="saludar()">Enviar</button>
+    </form>
+    
+    <script>
+        function saludar() {
+            let nombre = document.getElementById("nombre").value;
+            if (!nombre) {
+                alert('Escribe tu nombre.');
+                return;
+            } 
+            
+            // Capturar y validar género
+ let radio = document.querySelector('input[name="genero"]:checked');
+ if (!radio) {
+ alert('Selecciona un género.');
+ return;
+ }
+// Determinar saludo
+ if (radio.value === 'hombre') {
+ saludo = 'Bienvenido';
+ } else {
+ saludo = 'Bienvenida';
+ }
+ alert(`${saludo}, ${nombre}`); 
+
+            
+            //Capturar país y determinar saludo específico
+            let pais = document.getElementById("pais").value;
+            let frasePais = "";
+            if (pais === "arg") frasePais = "Gracias por visitarnos";
+            if (pais === "bra") frasePais = "Obrigado por nos visitar";
+            if (pais === "usa") frasePais = "Thanks for visiting us";
+            
+            document.body.innerHTML =
+            `<div>
+                <h1>${saludo} ${nombre}!</h1>
+                <p>${frasePais}.</p>
+            </div>`; 
+        }
+    </script>
+</body>
+</html>

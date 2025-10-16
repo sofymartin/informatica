@@ -48,6 +48,10 @@ aside {
     border-left: 4px solid rgb(139, 41, 158);
     border-radius: 7px;
 }
+aside a {
+    text-decoration: none;
+    color: #000000;
+}
 th {
     background-color: rgb(192, 188, 188);
 }

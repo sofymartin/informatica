@@ -4,58 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario 1</title>
+    <title>Registro y Saludo</title>
     <link rel="stylesheet" href="./formulario.css">
 </head>
 <body>
     <form id="formulario"> 
-     <h1>Formulario de Ingreso</h1>
-     <label for="nombre">Escribe tu nombre:</label>
-     <input type="text" id="nombre">
-     <br>
-     <label>Género:</label>
- <input type="radio" name="genero" value="hombre"> Hombre
- <input type="radio" name="genero" value="mujer"> Mujer
- <br>
-     <label for="pais">País de nacimiento:</label>
-  <select id="pais">
-  <option value="arg">Argentina</option>
-  <option value="bra">Brasil</option>
-  <option value="usa">EE.UU.</option>
-  </select> 
-  <button onclick="saludar()">Enviar</button>
+        <h1>Registro de Estudiante</h1>
+        
+        <label for="nombre">Escribe tu **nombre**:</label>
+        <input type="text" id="nombre" required>
+        <br><br>
+        
+        <label for="apellido">Escribe tu **apellido**:</label>
+        <input type="text" id="apellido" required>
+        <br><br>
+
+        <label for="curso">Selecciona tu **curso**:</label>
+        <select id="curso" required>
+            <option value="">-- Selecciona un curso --</option>
+            <option value="1er Grado">1º Grado</option>
+            <option value="2do Grado">2º Grado</option>
+            <option value="3er Grado">3º Grado</option>
+            <option value="4to Grado">4º Grado</option>
+        </select>
+        <br><br>
+
+        <button type="button" onclick="mostrarSaludo()">Enviar y Saludar</button>
     </form>
+
     <script>
-     function saludar() {
-     let nombre = document.getElementById("nombre").value;
-     if (!nombre) {
-  alert('Escribe tu nombre.');
-  return;
-  }
- // Capturar y validar género
- let radio = document.querySelector('input[name="genero"]:checked');
-  if (!radio) {
-  alert('Selecciona un género.');
-  return;
-  }
- // Determinar saludo
-  if (radio.value === 'hombre') {
-  saludo = 'Bienvenido';
-  } else {
-  saludo = 'Bienvenida';
-  }
-  //Capturar país y determinar saludo específico
-  let pais = document.getElementById("pais").value;
-  let frasePais = "";
-  if (pais === "arg") frasePais = "Gracias por visitarnos";
-  if (pais === "bra") frasePais = "Obrigado por nos visitar";
-  if (pais === "usa") frasePais = "Thanks for visiting us"; 
-  document.body.innerHTML =
-  `<div>
-  <h1>${saludo} ${nombre}!</h1>
-  <p>${frasePais}.</p>
-  </div>`; 
-     } 
+        function mostrarSaludo() {
+            // 1. Capturar los datos
+            let nombre = document.getElementById("nombre").value.trim();
+            let apellido = document.getElementById("apellido").value.trim();
+            let curso = document.getElementById("curso").value;
+
+            // 2. Validar que los campos no estén vacíos
+            if (!nombre || !apellido || !curso) {
+                alert('Por favor, completa todos los campos (Nombre, Apellido y Curso).');
+                return;
+            }
+
+            // 3. Generar el mensaje de bienvenida
+            let mensajeHTML = `
+                <div id="mensaje-bienvenida">
+                    <h1>¡Bienvenido/a ${nombre} ${apellido}! </h1>
+                    <p>Has sido registrado exitosamente.</p>
+                    <h2>Detalles de tu registro:</h2>
+                    <ul>
+                        <li>**Nombre Completo:** ${nombre} ${apellido}</li>
+                        <li>**Curso Asignado:** ${curso}</li>
+                    </ul>
+                    <p>¡Te deseamos éxito en este nuevo ciclo!</p>
+                </div>
+            `;
+            
+            // 4. Reemplazar todo el contenido del body con el mensaje de bienvenida
+            document.body.innerHTML = mensajeHTML;
+        }
     </script>
- </body>
+</body>
 </html>

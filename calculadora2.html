@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Promedio</title>
+</head>
+<body>
+    <form id="formulario"> 
+    <h1>Calculadora de Promedio</h1>
+    <label for="nota1">Escribe 1° Nota:</label>
+    <input type="text" id="nota1" required>
+    <br><br>
+    <label for="nota2">Escribe 2° Nota:</label>
+    <input type="text" id="nota2" required>
+    <br><br>
+    <label for="nota3">Escribe 3° Nota:</label>
+    <input type="text" id="nota3" required>
+    <br><br>
+    <button type="button" onclick="calcularPromedio()">Enviar</button>
+    </form>
+
+    <!-- Lugar donde se mostrará el resultado del promedio -->
+    <p id="resultado"></p>
+
+    <script>
+        // Calcula el promedio usando los tres campos de entrada y muestra el resultado
+        function calcularPromedio() {
+            // 1. Capturar y convertir a número
+            const nota1 = Number(document.getElementById("nota1").value.trim());
+            const nota2 = Number(document.getElementById("nota2").value.trim());
+            const nota3 = Number(document.getElementById("nota3").value.trim());
+
+            const resultado = document.getElementById("resultado");
+
+            // 2. Validar: no vacíos y números válidos
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                alert('Por favor, completa los tres campos con números válidos.');
+                resultado.textContent = "";
+                return;
+            }
+
+            // 3. Calcular promedio
+            const promedio = (nota1 + nota2 + nota3) / 3;
+
+            // 4. Mostrar resultado con color según aprobado/desaprobado (umbral 6)
+            if (promedio >= 6) {
+                resultado.textContent = `Aprobado con promedio de ${promedio.toFixed(2)}`;
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = `Desaprobado con promedio de ${promedio.toFixed(2)}`;
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

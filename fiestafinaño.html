@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro y Saludo</title>
-    <link rel="stylesheet" href="./formulario.css">
 </head>
 <body>
     <form id="formulario"> 
@@ -19,12 +18,12 @@
         <input type="text" id="apellido" required>
         <br><br>
 
-        <label for="curso">Selecciona tu curso:</label>
-        <select id="curso" required>
-            <option value="">-- Selecciona un curso --</option>
-            <option value="3º C">3º C</option>
-            <option value="3º H">3º H</option>
-            <option value="3º E">3º E</option>
+        <label for="asistencia">Asistencia al Evento:</label>
+        <select id="asistencia" required>
+            <option value="Asistencia al Evento:">Asistencia:</option>
+            <option value="Asistiré">Asistiré</option>
+            <option value="No Asistiré">No Asistiré</option>
+
         </select>
         <br><br>
 
@@ -36,15 +35,15 @@
             // 1. Capturar los datos
             let nombre = document.getElementById("nombre").value.trim();
             let apellido = document.getElementById("apellido").value.trim();
-            let curso = document.getElementById("curso").value;
+            let asistencia = document.getElementById("asistencia").value;
 
             // 2. Validar que los campos no estén vacíos
-            if (!nombre || !apellido || !curso) {
-                alert('Por favor, completa todos los campos (Nombre, Apellido y Curso).');
+            if (!nombre || !apellido || !asistencia) {
+                alert('Por favor, completa todos los campos (Nombre, Apellido y Asistencia).');
                 return;
             }
 
-            // 3. Generar el mensaje de bienvenida
+            // 3. Mensaje de bienvenida
             let mensajeHTML = `
                 <div id="mensaje-bienvenida">
                     <h1>¡Bienvenido/a ${nombre} ${apellido}! </h1>
@@ -52,12 +51,11 @@
                     <h2>Detalles de tu registro:</h2>
                     <ul>
                         <li>Nombre Completo: ${nombre} ${apellido}</li>
-                        <li>Curso Asignado: ${curso}</li>
+                        <li>Asistencia al Evento: ${asistencia}</li>
                     </ul>
                     <p>¡Te deseamos éxito en este nuevo ciclo!</p>
                 </div>
             `;
-            
             // 4. Reemplazar todo el contenido del body con el mensaje de bienvenida
             document.body.innerHTML = mensajeHTML;
         }

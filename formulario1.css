@@ -1,0 +1,86 @@
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    }
+    h1 {
+    text-align: center;
+    color: #fff; /* Cambiado a blanco para mejor contraste sobre el fondo del form */
+    margin-bottom: 20px;
+    }
+    form {
+    background: #99d5e7b2; /* Fondo oscuro del formulario */
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    text-align: left;
+    }
+    label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #fff; /* Corregido a blanco para verse sobre el fondo oscuro del form */
+    }
+    input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    }
+    input[type="text"]:focus, select:focus {
+    border-color: #4facfe;
+    box-shadow: 0px 0px 6px rgba(79, 172, 254, 0.6);
+    }
+    .radio-group {
+    margin: 8px 0 15px;
+    color: #ffffff; /* Añadido color para el texto que no es label (Hombre/Mujer) */
+    }
+    .radio-group input {
+    margin-right: 5px;
+    }
+    /* Estilos específicos para los labels de radio para que estén en línea */
+    .radio-group label {
+        display: inline;
+        font-weight: normal;
+        margin-right: 15px;
+    }
+    button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    margin-top: 15px;
+    }
+    button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #38f9d7, #43e97b);
+    } 
+    /* Estilos para el mensaje final */
+    div {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+        width: 300px;
+        text-align: center;
+    }
+    div h1 {
+        color: #333;
+    }
+    div p {
+        color: #555;
+        font-size: 1.1em;
+    }

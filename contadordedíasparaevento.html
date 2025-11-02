@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Días para Eventos</title>
+    <style>
+        body {
+            margin: 50px;
+            text-align: center;
+        }
+        #contenedor-formulario {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgb(133, 46, 46);
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 10px;
+            border: 1px solid #c28181;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #c76d6d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4e1717;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #551414;
+            border-radius: 4px;
+            color: #631b1b;
+            font-weight: bold;
+            display: none; /* Al prinicipio no está */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenedor-formulario">
+        <h1>Calculadora de Eventos</h1>
+
+        <label for="nombre-evento">Nombre del Evento:</label>
+        <input type="text" id="nombre-evento" required placeholder="Ej: Cumpleaños, Viaje, Examen">
+
+        <label for="fecha-evento">Fecha del Evento:</label>
+        <input type="date" id="fecha-evento" required>
+        
+        <button onclick="calcularDias()">Calcular</button>
+
+        <div id="resultado">
+            </div>
+    </div>
+
+    <script>
+        function calcularDias() {
+            // Obtener los valores del formulario
+            const nombreEventoInput = document.getElementById('nombre-evento').value.trim();
+            const fechaEventoInput = document.getElementById('fecha-evento').value;
+            const resultadoDiv = document.getElementById('resultado');
+
+            // 1. Validar campos
+            if (!nombreEventoInput || !fechaEventoInput) {
+                alert('Por favor, ingresa el nombre y la fecha del evento.');
+                return;
+            }
+
+            // 2. Preparar las fechas
+            const fechaHoy = new Date();
+            // Crear la fecha del evento, asegurando que se tome el inicio del día (medianoche).
+            const fechaEvento = new Date(fechaEventoInput + 'T00:00:00'); 
+            
+            // Establecer la hora de hoy a medianoche para una comparación precisa de días completos
+            fechaHoy.setHours(0, 0, 0, 0); 
+
+            // 3. Calcular la diferencia en milisegundos
+            // El orden de la resta es importante: Evento - Hoy
+            const diferenciaMilisegundos = fechaEvento.getTime() - fechaHoy.getTime();
+
+            // 4. Convertir milisegundos a días
+            // (1000 ms/s * 60 s/min * 60 min/h * 24 h/día)
+            const milisegundosPorDia = 1000 * 60 * 60 * 24;
+            
+            // Math.round asegura que el resultado se redondee al día completo más cercano
+            const diasFaltantes = Math.round(diferenciaMilisegundos / milisegundosPorDia);
+
+            // 5. Mostrar el resultado
+            if (diasFaltantes > 0) {
+                // Faltan X días
+                alert (`Faltan ${diasFaltantes} días para el evento "${nombreEventoInput}".`);
+            } else if (diasFaltantes === 0) {
+                // Es hoy
+                alert (`¡El evento "${nombreEventoInput}" es hoy!`);
+            } else {
+                // La fecha ya pasó (diasFaltantes será negativo)
+                const diasPasados = Math.abs(diasFaltantes);
+                alert (`El evento "${nombreEventoInput}" ya ocurrió hace ${diasPasados} días.`);
+            }
+        }
+    </script>
+</body>
+</html>
